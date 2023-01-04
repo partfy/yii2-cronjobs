@@ -282,7 +282,7 @@ RAW;
             array($this->logsDir, $task['command'], $task['action'], getmypid()),
             $pattern
         );
-        return preg_replace_callback('#%D\((.+)\)#U', create_function('$str', 'return date($str[1]);'), $pattern);
+        return preg_replace_callback('#%D\((.+)\)#U', fn ($str) => date($str[1]), $pattern);
     }
 
     /**
